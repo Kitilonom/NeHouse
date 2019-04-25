@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.nehouse.nehouse">
+    package="com.example.homeassistant">
 
     <application
         android:allowBackup="true"
@@ -16,6 +16,31 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".Calendar"
+            android:label="Calendar">
+        </activity>
+
+        <activity android:name=".ForgotPassword"
+            android:label="Forgot Password">
+        </activity>
+
+        <activity android:name=".LogOn"
+            android:label="Log On">
+        </activity>
+
+        <activity android:name=".PasswordChanging"
+            android:label="Password Changing">
+        </activity>
+
+        <activity android:name=".Profile"
+            android:label="Profile">
+        </activity>
+
+        <activity android:name=".WelcomePage"
+            android:label="Welcome Page">
+        </activity>
+
     </application>
 
 </manifest>
