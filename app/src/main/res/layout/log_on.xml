@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width = "match_parent"
+    android:layout_height = "match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="#03a9f4">
+
+    <TextView
+        android:id="@+id/Welcome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Log on"
+        android:gravity="center"
+        android:layout_margin="25dp"
+        android:typeface="monospace"
+        android:textColor="#ffffff"
+        android:textSize="25dp"/>
+
+    <EditText
+        android:id="@+id/Email"
+        android:layout_margin="25dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="textEmailAddress" />
+
+    <EditText
+        android:id="@+id/Password0"
+        android:layout_margin="25dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPassword"/>
+
+    <EditText
+        android:id="@+id/Password1"
+        android:layout_margin="25dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Repeat password"
+        android:inputType="textPassword"/>
+
+    <Button
+        android:id="@+id/LogOn"
+        android:layout_margin="25dp"
+        android:layout_width="250dp"
+        android:textColor="#ffffff"
+        android:layout_height="wrap_content"
+        android:onClick="LogOnLogOn"
+        android:text="Log on"
+        android:background="@drawable/button_desidn"
+        />
+
+
+</LinearLayout>
