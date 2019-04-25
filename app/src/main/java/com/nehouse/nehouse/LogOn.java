@@ -1,4 +1,4 @@
-package = com.nehouse.nehouse;
+package com.nehouse.nehouse;
 
 import android.app.Activity;
 import android.content.Intent;
