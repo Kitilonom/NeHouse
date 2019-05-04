@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_margin="25dp"
+    android:background="@drawable/dialog_design"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/NewGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="New Group"
+        android:gravity="center"
+        android:layout_margin="25dp"
+        android:typeface="monospace"
+        android:textColor="#ffffff"
+        android:textSize="25dp" />
+
+
+    <EditText
+        android:id="@+id/NewGroupName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="25dp"
+        android:hint="Title"/>
+
+    <Button
+        android:id="@+id/NewGroupConfirm"
+        android:layout_margin="25dp"
+        android:layout_width="250dp"
+        android:textColor="#ffffff"
+        android:layout_height="wrap_content"
+        android:text="confirm"
+        android:gravity="center"
+        android:background="@drawable/button_desidn"
+        />
+
+</LinearLayout>
