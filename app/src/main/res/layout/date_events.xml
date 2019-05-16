@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width = "match_parent"
+    android:layout_height = "match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@color/colorPrimary">
+
+    <TextView
+        android:id="@+id/Events"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Events"
+        android:gravity="center"
+        android:layout_margin="25dp"
+        android:typeface="monospace"
+        android:textColor="#ffffff"
+        android:textSize="25dp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/EventsQueue"
+        android:layout_width = "match_parent"
+        android:layout_height = "wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="@color/colorPrimary">
+
+    </LinearLayout>
+
+    </ScrollView>
+
+    <Button
+        android:id="@+id/NewEvent"
+        android:layout_margin="25dp"
+        android:layout_width="250dp"
+        android:textColor="#ffffff"
+        android:layout_height="wrap_content"
+        android:text="New Event"
+        android:gravity="center"
+        android:background="@drawable/button_desidn"
+        />
+
+</LinearLayout>

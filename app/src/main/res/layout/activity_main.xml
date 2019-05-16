@@ -3,79 +3,77 @@
     android:layout_width = "match_parent"
     android:layout_height = "match_parent"
     android:orientation="vertical"
-    android:gravity="center"
-    android:background="#ffffff">
+    android:gravity="center">
 
 
     <Button
-        android:id="@+id/Calendar"
+        android:id="@+id/CalendarButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:textColor="#ffffff"
-        android:onClick="MainActivityCalendar"
         android:text="Calendar"
         android:layout_weight="1"
-        android:background="@drawable/main_menu_design"/>
+        android:background="@drawable/main_menu_design"
+        android:onClick="MainActivityCalendar"/>
 
 
     <Button
-        android:id="@+id/Budget"
+        android:id="@+id/BudgetButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="5dp"
-        android:textColor="#ffffff"
         android:layout_weight="1"
         android:text="Budget"
-        android:background="@drawable/main_menu_design"/>
+        android:background="@drawable/main_menu_design"
+        android:onClick="MainActivityBudget"/>
 
     <Button
-        android:id="@+id/Notifications"
+        android:id="@+id/NotificationsButton"
         android:layout_width="400dp"
         android:layout_weight="1"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:background="@drawable/main_menu_design"
         android:text="notifications"
-        android:textColor="#ffffff" />
+        android:onClick="MainActivityNotifications"/>
 
     <Button
-        android:id="@+id/ShoppingList"
+        android:id="@+id/ShoppingListButton"
         android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="5dp"
-        android:textColor="#ffffff"
         android:text="Shopping list"
-        android:background="@drawable/main_menu_design"/>
+        android:background="@drawable/main_menu_design"
+        android:onClick="MainActivityShoppingList"/>
 
     <Button
-        android:id="@+id/Contacts"
+        android:id="@+id/ContactsButton"
         android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:textColor="#ffffff"
         android:text="contacts"
-        android:background="@drawable/main_menu_design"/>
+        android:background="@drawable/main_menu_design"
+        android:onClick="MainActivityContacts"/>
 
     <Button
-        android:id="@+id/Wishlist"
+        android:id="@+id/WishlistButton"
         android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="5dp"
-        android:textColor="#ffffff"
         android:text="wishlist"
-        android:background="@drawable/main_menu_design"/>
+        android:background="@drawable/main_menu_design"
+        android:onClick="MainActivityWishlist"/>
 
     <Button
-        android:id="@+id/Settings"
+        android:id="@+id/SettingsButton"
         android:layout_width="match_parent"
         android:layout_weight="1"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:textColor="#ffffff"
         android:text="settings"
-        android:background="@drawable/main_menu_design"/>
+        android:background="@drawable/main_menu_design"
+        android:onClick="MainActivitySettings"/>
 </LinearLayout>
