@@ -47,6 +47,7 @@
         android:text="confirm"
         android:gravity="center"
         android:background="@drawable/button_desidn"
+        android:onClick="NewAccount"
         />
 
 

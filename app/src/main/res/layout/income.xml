@@ -37,6 +37,14 @@
         android:ems="10"
         android:inputType="textMultiLine" />
 
+    <AutoCompleteTextView
+        android:id="@+id/IncomeOwner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_margin="25dp"
+        android:hint="Account" />
+
     <Button
         android:id="@+id/IncomeConfirm"
         android:layout_margin="25dp"
@@ -46,6 +54,7 @@
         android:text="confirm"
         android:gravity="center"
         android:background="@drawable/button_desidn"
+        android:onClick="IncomeConfirm"
         />
 
 

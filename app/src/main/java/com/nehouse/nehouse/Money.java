@@ -3,7 +3,7 @@ package com.nehouse.nehouse;
 import java.util.Date;
 
 public class Money {
-    static int OpCount;
+    static int OpCount = 0;
     int sum;
     Date date;
     int Mid;
@@ -28,11 +28,19 @@ public class Money {
         date = new Date();
         Mid = ++OpCount + 10000;
         Budget.moneyQueue.add(this);
+        int sum1;
+        if (income) {
+            sum1 = Budget.accQueue.get(owner).accSum + sum;
+        }
+        else {
+            sum1 = Budget.accQueue.get(owner).accSum - sum;
+        }
+        Budget.accQueue.get(owner).setAccSum(sum1);
     }
 
     int findOwner(String own) {
-        for(int j = 0; j < accCount; j++) {
-            if (accQueue[j] == own) return j;
+        for(int j = 0; j < Accounts.accCount; j++) {
+            if (Budget.accQueue.get(j).accName == own) return j;
         }
         return -1;
     }
