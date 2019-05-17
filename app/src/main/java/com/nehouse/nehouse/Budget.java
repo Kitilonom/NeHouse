@@ -6,9 +6,12 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import java.util.ArrayList;
+
 public class Budget extends AppCompatActivity{
 
     Dialog NewAccountDialog, IncomeDialog, ExpenseDialog;
+    public static ArrayList<Money> moneyQueue = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +23,7 @@ public class Budget extends AppCompatActivity{
         IncomeDialog.setContentView(R.layout.income);
         ExpenseDialog = new Dialog(Budget.this);
         ExpenseDialog.setContentView(R.layout.expense);
+        moneyQueue = new ArrayList<>();
     }
 
     public void BudgetNewAccount (View view) {
@@ -35,7 +39,7 @@ public class Budget extends AppCompatActivity{
     }
 
     public void BudgetOperationsHistory (View view) {
-        Intent intent = new Intent(Budget.this, OperationsHistory.class); //класса еще нет
+        Intent intent = new Intent(Budget.this, OperationsHistory.class);
         startActivity(intent);
     }
 
