@@ -14,6 +14,10 @@ public class PasswordChanging extends Activity {
     }
 
     public void PasswordChangingConfirm (View view) {
+        if (!Profile.logon) {
+            Profile.logon = true;
+            finish();
+        }
         Intent intent = new Intent(PasswordChanging.this, MainActivity.class);
         startActivity(intent);
     }
