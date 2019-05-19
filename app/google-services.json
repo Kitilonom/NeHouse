@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "940193884510",
+    "firebase_url": "https://nehouse-a931d.firebaseio.com",
+    "project_id": "nehouse-a931d",
+    "storage_bucket": "nehouse-a931d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:940193884510:android:c85d6b05c5f5755b",
+        "android_client_info": {
+          "package_name": "com.nehouse.nehouse"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "940193884510-gkd2ac2um9pcq86ujqe4eluul1ggjbn7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.nehouse.nehouse",
+            "certificate_hash": "0d553f70d32fd002ea2d9713698cdf78e47a5659"
+          }
+        },
+        {
+          "client_id": "940193884510-9lt1jclr6nkis60sd4c5sfuf4p1nq3a1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCy5ozimg20rFDBvkulXX9tMeW7EuAiD4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "940193884510-9lt1jclr6nkis60sd4c5sfuf4p1nq3a1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -10,12 +10,20 @@
         android:id="@+id/Welcome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Log on"
+        android:text="Create a new Account"
         android:gravity="center"
         android:layout_margin="25dp"
         android:typeface="monospace"
         android:textColor="#ffffff"
         android:textSize="25dp"/>
+
+    <EditText
+        android:id="@+id/UserName"
+        android:layout_margin="25dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="UserName" />
 
     <EditText
         android:id="@+id/Email"
@@ -51,7 +59,7 @@
         android:textColor="#ffffff"
         android:layout_height="wrap_content"
         android:onClick="LogOnLogOn"
-        android:text="Log on"
+        android:text="REGISTER"
         android:background="@drawable/button_desidn"
         />
 

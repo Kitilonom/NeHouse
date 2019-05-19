@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -28,8 +29,7 @@ public class WelcomePage extends Activity {
     private FirebaseAuth mAuth;
     private FirebaseUser currentUser;
 
-    public String email;
-    public String password;
+    private String email, password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,19 +48,25 @@ public class WelcomePage extends Activity {
     }
 
     public void WelcomePageLogIn (View view) {
-        GetEmail();
-        GetPassword();
-        SignIn();
+        String _password = GetPassword();
+        String _email = GetEmail();
+        if (_password.isEmpty() || _email.isEmpty()) {
+            Toast.makeText(WelcomePage.this, "All fileds are required", Toast.LENGTH_SHORT).show();
+        } else {
+            email = GetEmail();
+            password = GetPassword();
+            SignIn();
+        }
     }
 
-    public void GetEmail(){
+    public String GetEmail(){
         EditText ETemail = (EditText) findViewById(R.id.Email); //Read info from user interface
-        email =  ETemail.getText().toString();
+        return ETemail.getText().toString();
     }
 
-    public void GetPassword(){
+    public String GetPassword(){
         EditText ETpassword = (EditText) findViewById(R.id.Password); //Read info from user interface
-        password = ETpassword.getText().toString();
+        return ETpassword.getText().toString();
     }
 
     public void SignIn()

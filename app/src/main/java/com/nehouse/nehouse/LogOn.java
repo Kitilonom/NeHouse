@@ -1,9 +1,11 @@
 package com.nehouse.nehouse;
 
+import android.accounts.Account;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -14,16 +16,20 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
 
 import static android.content.ContentValues.TAG;
 
 public class LogOn extends Activity {
 
     private FirebaseAuth mAuth;
+    private DatabaseReference usersDB;
     private FirebaseUser currentUser;
 
-    public String email;
-    public String password;
+    private String userName, email, password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,22 +37,38 @@ public class LogOn extends Activity {
         setContentView(R.layout.log_on);
 
         mAuth = FirebaseAuth.getInstance();     // Initialize Firebase Auth
+        usersDB = FirebaseDatabase.getInstance().getReference("Users");
     }
 
     public void LogOnLogOn (View view) {
-        GetEmail();
-        GetPassword();
-        CreateAccount();
+        String _password = GetPassword();
+        String _email = GetEmail();
+        String _userName = GetUserName();
+        if (_userName.isEmpty() || _password.isEmpty() || _email.isEmpty()) {
+            Toast.makeText(LogOn.this, "All fileds are required", Toast.LENGTH_SHORT).show();
+        } else if (_password.length() < 6) {
+            Toast.makeText(LogOn.this, "Password must be at least 6 characters", Toast.LENGTH_SHORT).show();
+        } else {
+            userName = GetUserName();
+            email = GetEmail();
+            password = GetPassword();
+            CreateAccount();
+        }
     }
 
-    public void GetEmail(){
+    public String GetUserName(){
+        EditText ETusername = (EditText) findViewById(R.id.UserName); //Read info from user interface
+        return ETusername.getText().toString();
+    }
+
+    public String GetEmail(){
         EditText ETemail = (EditText) findViewById(R.id.Email); //Read info from user interface
-        email =  ETemail.getText().toString();
+        return ETemail.getText().toString();
     }
 
-    public void GetPassword(){
+    public String GetPassword(){
         EditText ETpassword = (EditText) findViewById(R.id.Password1); //Read info from user interface
-        password = ETpassword.getText().toString();
+        return ETpassword.getText().toString();
     }
 
     public void CreateAccount() {
@@ -58,6 +80,26 @@ public class LogOn extends Activity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "createUserWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
+                            Toast.makeText(LogOn.this, "Authentication succesfull.",
+                                    Toast.LENGTH_SHORT).show();
+
+                            String userID = user.getUid();
+
+                            HashMap<String, String> user_info = new HashMap<>();
+                            user_info.put("id", userID);
+                            user_info.put("username", userName);
+                            user_info.put("password", password);
+                            user_info.put("email", email);
+
+                            usersDB.child(userID).setValue(user_info).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if (task.isSuccessful()) {
+                                        Toast.makeText(LogOn.this, "DB succesfull.",
+                                                Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            });
                             updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
@@ -68,14 +110,6 @@ public class LogOn extends Activity {
                         }
                     }
                 });
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        updateUI(currentUser);
     }
 
     private void updateUI(FirebaseUser user) {
