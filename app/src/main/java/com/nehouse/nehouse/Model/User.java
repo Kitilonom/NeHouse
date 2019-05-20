@@ -1,6 +1,10 @@
 package com.nehouse.nehouse.Model;
 
+import com.google.firebase.database.Exclude;
 import com.google.firebase.database.IgnoreExtraProperties;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @IgnoreExtraProperties
 public class User {
@@ -16,7 +20,7 @@ public class User {
     private User() {
     }
 
-    public User(String _id, String _name, String  _phone, String _email, String _password, String _groupID, String _bday, String _image) {
+    public User(String _id, String _name, String  _phone, String _email, String _password, String _groupID, String _bday) {
         id = _id;
         name = _name;
         phone = _phone;
@@ -24,7 +28,6 @@ public class User {
         password = _password;
         groupID = _groupID;
         bday = _bday;
-        image = _image;
     }
 
     public String getId() {
@@ -55,12 +58,17 @@ public class User {
         return bday;
     }
 
-    public String getImage() {
-        return image;
+    @Exclude
+    public Map<String, Object> toMap() {
+        HashMap<String, Object> result = new HashMap<>();
+        result.put("id", id);
+        result.put("name", name);
+        result.put("password", password);
+        result.put("email", email);
+        result.put("phone", phone);
+        result.put("groupID", groupID);
+        result.put("bday", bday);
+
+        return  result;
     }
-
-
-
-
-
 }
