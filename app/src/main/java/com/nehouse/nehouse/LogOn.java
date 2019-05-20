@@ -26,9 +26,6 @@ import static android.content.ContentValues.TAG;
 public class LogOn extends Activity {
 
     private FirebaseAuth mAuth;
-    private DatabaseReference usersDB;
-    private FirebaseUser currentUser;
-
     private String userName, email, password;
 
     @Override
@@ -36,8 +33,7 @@ public class LogOn extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.log_on);
 
-        mAuth = FirebaseAuth.getInstance();     // Initialize Firebase Auth
-        usersDB = FirebaseDatabase.getInstance().getReference("Users");
+        mAuth = FirebaseAuth.getInstance();
     }
 
     public void LogOnLogOn (View view) {
@@ -77,9 +73,9 @@ public class LogOn extends Activity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "createUserWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
+                            MainActivity.AUTH = true;
                             Toast.makeText(LogOn.this, "Authentication succesfull.",
                                     Toast.LENGTH_SHORT).show();
 
@@ -90,20 +86,18 @@ public class LogOn extends Activity {
                             user_info.put("name", userName);
                             user_info.put("password", password);
                             user_info.put("email", email);
-                            user_info.put("image", "default");
 
-                            usersDB.child(userID).setValue(user_info).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            MainActivity.usersDB.child(userID).setValue(user_info).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if (task.isSuccessful()) {
-                                        Toast.makeText(LogOn.this, "DB succesfull.",
+                                        Toast.makeText(LogOn.this, "DB update is succesfull.",
                                                 Toast.LENGTH_SHORT).show();
                                     }
                                 }
                             });
                             updateUI(user);
                         } else {
-                            // If sign in fails, display a message to the user.
                             Log.w(TAG, "createUserWithEmail:failure", task.getException());
                             Toast.makeText(LogOn.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
@@ -114,7 +108,7 @@ public class LogOn extends Activity {
     }
 
     private void updateUI(FirebaseUser user) {
-        currentUser = user;
+        MainActivity.currentUser = user;
         if (user != null)
             finish();
     }
