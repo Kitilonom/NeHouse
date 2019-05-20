@@ -19,13 +19,10 @@ import com.google.firebase.auth.FirebaseUser;
 
 import static android.content.ContentValues.TAG;
 
-
-
 public class WelcomePage extends Activity {
 
     private FirebaseAuth mAuth;
     private FirebaseUser currentUser;
-
     private String email, password;
 
     @Override
@@ -36,33 +33,25 @@ public class WelcomePage extends Activity {
         mAuth = FirebaseAuth.getInstance();
     }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
-        currentUser = mAuth.getCurrentUser();
-        updateUI(currentUser);
-    }
-
     public void WelcomePageLogIn (View view) {
         String _password = GetPassword();
         String _email = GetEmail();
         if (_password.isEmpty() || _email.isEmpty()) {
             Toast.makeText(WelcomePage.this, "All fileds are required", Toast.LENGTH_SHORT).show();
         } else {
-            email = GetEmail();
-            password = GetPassword();
+            email = _email;
+            password = _password;
             SignIn();
         }
     }
 
     public String GetEmail(){
-        EditText ETemail = (EditText) findViewById(R.id.Email); //Read info from user interface
+        EditText ETemail = (EditText) findViewById(R.id.Email);
         return ETemail.getText().toString();
     }
 
     public String GetPassword(){
-        EditText ETpassword = (EditText) findViewById(R.id.Password); //Read info from user interface
+        EditText ETpassword = (EditText) findViewById(R.id.Password);
         return ETpassword.getText().toString();
     }
 
@@ -73,12 +62,11 @@ public class WelcomePage extends Activity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
+                            MainActivity.AUTH = true;
                             updateUI(user);
                         } else {
-                            // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithEmail:failure", task.getException());
                             Toast.makeText(WelcomePage.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
@@ -101,7 +89,9 @@ public class WelcomePage extends Activity {
 
     private void updateUI(FirebaseUser user) {
         currentUser = user;
-        if (user != null)
-            finish();
+        if (user != null) {
+            Intent intent = new Intent(WelcomePage.this, MainActivity.class);
+            startActivity(intent);
+        }
     }
 }
