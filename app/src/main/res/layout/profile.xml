@@ -28,15 +28,6 @@
         android:inputType="date"/>
 
     <EditText
-        android:id="@+id/ProfileEmail"
-        android:layout_margin="25dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Email"
-        android:inputType="textEmailAddress"/>
-
-    <EditText
         android:id="@+id/ProfilePhone"
         android:layout_margin="25dp"
         android:layout_width="match_parent"
