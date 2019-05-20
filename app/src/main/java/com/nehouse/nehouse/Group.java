@@ -14,15 +14,12 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.nehouse.nehouse.Adapter.UserAdapter;
 import com.nehouse.nehouse.Model.User;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Group extends AppCompatActivity {
-    private RecyclerView recyclerView;
-    private UserAdapter userAdapter;
     private List<User> mUsers;
 
     @Override
@@ -30,9 +27,6 @@ public class Group extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.group);
 
-        recyclerView =  findViewById(R.id.GroupContactsQueue);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getBaseContext()));
 
         mUsers = new ArrayList<>();
         readUsers();
@@ -54,8 +48,6 @@ public class Group extends AppCompatActivity {
                     }
                 }
 
-                userAdapter = new UserAdapter(getBaseContext(), mUsers);
-                recyclerView.setAdapter(userAdapter);
             }
 
             @Override
