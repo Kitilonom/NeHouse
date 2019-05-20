@@ -6,16 +6,6 @@
     android:gravity="center"
     android:background="@color/colorPrimary">
 
-    <TextView
-        android:id="@+id/Budget"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Budget"
-        android:gravity="center"
-        android:layout_margin="25dp"
-        android:typeface="monospace"
-        android:textColor="#ffffff"
-        android:textSize="25dp" />
 
     <ScrollView
         android:layout_weight="1"

@@ -30,4 +30,5 @@ public class Calendar extends Activity {
         Intent intent = new Intent(Calendar.this, EditEvent.class);
         startActivity(intent);
     }
+
 }

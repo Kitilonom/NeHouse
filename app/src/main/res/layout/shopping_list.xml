@@ -6,16 +6,6 @@
     android:gravity="center"
     android:background="@color/colorPrimary">
 
-    <TextView
-        android:id="@+id/ShoppingList"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Shopping List"
-        android:gravity="center"
-        android:layout_margin="25dp"
-        android:typeface="monospace"
-        android:textColor="#ffffff"
-        android:textSize="25dp" />
 
 
     <ScrollView
@@ -39,6 +29,7 @@
         android:text="New Purchase"
         android:gravity="center"
         android:background="@drawable/button_desidn"
+        android:onClick="NewPurchase"
         />
 
 </LinearLayout>

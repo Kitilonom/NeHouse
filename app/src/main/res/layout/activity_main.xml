@@ -36,7 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:background="@drawable/main_menu_design"
-        android:text="Chats"
+        android:text="Chat"
         android:textColor="@color/colorWhite"
         android:onClick="MainActivityNotifications"/>
 

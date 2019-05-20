@@ -34,7 +34,6 @@ import com.nehouse.nehouse.Model.User;
             Intent intent = new Intent(MainActivity.this, com.nehouse.nehouse.WelcomePage.class);
             startActivity(intent);
 
-            profile_image = findViewById(R.id.profile_image);
 
             firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
             if(firebaseUser != null) {
@@ -81,7 +80,7 @@ import com.nehouse.nehouse.Model.User;
         }
 
         public void MainActivityNotifications (View view) {
-            Intent intent = new Intent(MainActivity.this, Notifications.class);
+            Intent intent = new Intent(MainActivity.this, Chat.class);
             startActivity(intent);
         }
 

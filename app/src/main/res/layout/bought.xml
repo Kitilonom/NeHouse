@@ -1,11 +1,11 @@
 
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width = "match_parent"
-        android:layout_height = "wrap_content"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:layout_margin="25dp"
-        android:background="@drawable/dialog_design">
+    android:layout_width = "match_parent"
+    android:layout_height = "wrap_content"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@drawable/dialog_design">
 
     <TextView
         android:id="@+id/Bought"
@@ -30,8 +30,9 @@
         android:id="@+id/BoughtCommit"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/button_desidn"
+        android:background="@drawable/dialog_button"
         android:text="commit"
         android:layout_margin="25dp"/>
+
 
 </LinearLayout>

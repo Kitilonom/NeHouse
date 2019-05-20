@@ -6,17 +6,6 @@
     android:gravity="center"
     android:background="#03a9f4">
 
-    <TextView
-        android:id="@+id/Welcome"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Create a new Account"
-        android:gravity="center"
-        android:layout_margin="25dp"
-        android:typeface="monospace"
-        android:textColor="#ffffff"
-        android:textSize="25dp"/>
-
     <EditText
         android:id="@+id/UserName"
         android:layout_margin="25dp"

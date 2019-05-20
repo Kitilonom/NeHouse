@@ -4,18 +4,8 @@
     android:layout_height = "match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="@color/colorPrimary">
+    android:background="@color/colorPrimaryLight">
 
-    <TextView
-        android:id="@+id/Events"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Events"
-        android:gravity="center"
-        android:layout_margin="25dp"
-        android:typeface="monospace"
-        android:textColor="#ffffff"
-        android:textSize="25dp" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -24,7 +14,7 @@
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/EventsQueue"
         android:layout_width = "match_parent"
-        android:layout_height = "wrap_content"
+        android:layout_height = "match_parent"
         android:orientation="vertical"
         android:gravity="center"
         android:background="@color/colorPrimary">

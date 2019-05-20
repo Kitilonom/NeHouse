@@ -8,15 +8,6 @@
     android:layout_height="match_parent">
 
 
-    <TextView
-        android:id="@+id/Contacts"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Contacts"
-        android:gravity="center"
-        android:layout_margin="25dp"
-        android:typeface="monospace"
-        android:textSize="25dp" />
 
     <ScrollView
         android:layout_weight="1"
@@ -30,28 +21,6 @@
             android:orientation="vertical" />
     </ScrollView>
 
-    <Button
-        android:id="@+id/NewGroupButton"
-        android:layout_margin="10dp"
-        android:layout_width="250dp"
-        android:textColor="#ffffff"
-        android:layout_height="wrap_content"
-        android:text="New Group"
-        android:gravity="center"
-        android:background="@drawable/button_desidn"
-        />
-
-    <Button
-        android:id="@+id/NewContactButton"
-        android:layout_marginHorizontal="25dp"
-        android:layout_width="250dp"
-        android:textColor="#ffffff"
-        android:layout_height="wrap_content"
-        android:text="New Contact"
-        android:gravity="center"
-        android:background="@drawable/button_desidn"
-        android:layout_marginBottom="10dp"
-        />
 
 
 </LinearLayout>

@@ -7,16 +7,6 @@
     android:gravity="center"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/editEvent"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Edit Event"
-        android:gravity="center"
-        android:layout_margin="25dp"
-        android:typeface="monospace"
-        android:textColor="#ffffff"
-        android:textSize="25dp" />
 
     <EditText
         android:id="@+id/EventDate"

@@ -58,10 +58,6 @@
             android:label="My WishList">
         </activity>
 
-        <activity android:name=".NewContact"
-            android:label="New Contact">
-        </activity>
-
         <activity android:name=".Notifications"
             android:label="Notifications">
         </activity>

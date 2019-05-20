@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:background="@drawable/dialog_design"
     android:gravity="center"
-    android:layout_margin="25dp"
     android:layout_height="wrap_content">
 
     <TextView
@@ -37,15 +38,6 @@
         android:ems="10"
         android:inputType="number" />
 
-    <EditText
-        android:id="@+id/NewPurchaseComment"
-        android:layout_margin="25dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Comment"
-        android:ems="10"
-        android:inputType="textMultiLine" />
-
     <Button
         android:id="@+id/NewPurchaseConfirm"
         android:layout_margin="25dp"
@@ -54,8 +46,8 @@
         android:layout_height="wrap_content"
         android:text="confirm"
         android:gravity="center"
-        android:background="@drawable/button_desidn"
+        android:background="@drawable/dialog_button"
+        android:onClick="NewPurchaseConfirm"
         />
-
 
 </LinearLayout>

@@ -8,16 +8,6 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/Settings"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Settings"
-        android:gravity="center"
-        android:layout_margin="25dp"
-        android:typeface="monospace"
-        android:textSize="25dp" />
-
-    <TextView
         android:id="@+id/UserID"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
@@ -44,7 +34,7 @@
         android:layout_margin="25dp"
         android:gravity="center"
         android:background="@drawable/button_desidn"
-        android:text="Change Password"
+        android:text="log out"
         android:onClick="SettingsPassword"
         />
 
