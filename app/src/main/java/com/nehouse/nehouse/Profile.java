@@ -1,26 +1,53 @@
-package com.nehouse.nehouse;
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="#03a9f4">
 
-import android.app.Activity;
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
 
-public class Profile extends Activity {
 
-    public static boolean logon = true;
+    <EditText
+        android:id="@+id/Name"
+        android:layout_margin="25dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Name"
+        android:inputType="textPersonName" />
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.profile);
-    }
+    <EditText
+        android:id="@+id/DateOfBirth"
+        android:layout_margin="25dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Date of birth"
+        android:inputType="date"/>
 
-    public void ProfileConfirm (View view) {
-        if (!logon) {           //если вызвана из settings
-            logon = true;       //возвращаем флаг в предыдущее состояние
-            finish();           //завершаем активность
-        }
-        Intent intent = new Intent(Profile.this, MainActivity.class);
-        startActivity(intent);
-    }
-}
+    <EditText
+        android:id="@+id/ProfilePhone"
+        android:layout_margin="25dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Phone number"
+        android:inputType="phone"/>
+
+
+
+    <Button
+        android:id="@+id/ProfileConfirm"
+        android:layout_margin="25dp"
+        android:layout_width="250dp"
+        android:textColor="#ffffff"
+        android:layout_height="wrap_content"
+        android:onClick="ProfileConfirm"
+        android:text="Confirm"
+        android:background="@drawable/button_desidn"
+        />
+
+
+</LinearLayout>
