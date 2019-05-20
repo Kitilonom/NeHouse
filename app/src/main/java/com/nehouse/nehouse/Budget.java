@@ -16,8 +16,6 @@ import java.util.ArrayList;
 public class Budget extends AppCompatActivity{
 
     Dialog NewAccountDialog, IncomeDialog, ExpenseDialog;
-    public static ArrayList<Money> moneyQueue = new ArrayList<>();
-    public static ArrayList<Accounts> accQueue = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,12 +25,13 @@ public class Budget extends AppCompatActivity{
         LinearLayout AccountsQueue = (LinearLayout)findViewById(R.id.AccountsQueue);
         TextView name = (TextView)findViewById(R.id.AccName);
         TextView sum = (TextView)findViewById(R.id.AccSum);
-        for (int i = 0; i < Accounts.accCount; i++) {
+        if (MainActivity.accCount != 0) {
+        for (int i = 0; i < MainActivity.accCount; i++) {
             LinearLayout Acc = (LinearLayout)findViewById(R.id.Acc);
-            name.setText(Budget.accQueue.get(i).accName);
-            sum.setText(Budget.accQueue.get(i).accSum);
+            name.setText(MainActivity.accQueue.get(i).accName);
+            sum.setText(MainActivity.accQueue.get(i).accSum);
             AccountsQueue.addView(Acc);
-        }
+        }}
 
         NewAccountDialog = new Dialog(Budget.this);
         NewAccountDialog.setContentView(R.layout.new_account);
@@ -44,11 +43,11 @@ public class Budget extends AppCompatActivity{
         ExpenseDialog.setContentView(R.layout.expense);
 
 
-  /**    AutoCompleteTextView chooseAcc1 = (AutoCompleteTextView)findViewById(R.id.ExpenseOwner); //установка выпадающего списка
-        chooseAcc1.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_dropdown_item_1line, Accounts.accList));
+        AutoCompleteTextView chooseAcc1 = (AutoCompleteTextView)findViewById(R.id.ExpenseOwner); //установка выпадающего списка
+        if (MainActivity.accCount != 0) {chooseAcc1.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_dropdown_item_1line, MainActivity.accList));}
 
         AutoCompleteTextView chooseAcc2 = (AutoCompleteTextView)findViewById(R.id.IncomeOwner);
-        chooseAcc2.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_dropdown_item_1line, Accounts.accList));*/
+        if (MainActivity.accCount != 0) {chooseAcc2.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_dropdown_item_1line, MainActivity.accList));}
     }
 
    public void BudgetNewAccount (View view) {
@@ -89,7 +88,8 @@ public class Budget extends AppCompatActivity{
         int sum = Integer.parseInt(Sum);
         String comm = ETcomm.getText().toString();
         String own = ETown.getText().toString();
-        new Money(sum, comm, false, own);
+        Money m = new Money(sum, comm, false, own);
+        m.ExMoney();
         finish();
     }
 
@@ -101,7 +101,8 @@ public class Budget extends AppCompatActivity{
         int sum = Integer.parseInt(Sum);
         String comm = ETcomm.getText().toString();
         String own = ETown.getText().toString();
-        new Money(sum, comm, true, own);
+        Money m = new Money(sum, comm, true, own);
+        m.ExMoney();
         finish();
     }
 }

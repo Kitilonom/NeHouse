@@ -50,11 +50,6 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
 
         final User user = mUsers.get(position);
         holder.username.setText(user.getName());
-        if (user.getImage().equals("default")){
-            holder.profile_image.setImageResource(R.mipmap.ic_launcher);
-        } else {
-            Glide.with(mContext).load(user.getImage()).into(holder.profile_image);
-        }
 
         /**if (ischat){
             lastMessage(user.getId(), holder.last_msg);

@@ -18,13 +18,13 @@ public class OperationsHistory extends AppCompatActivity {
         TextView sum = (TextView)findViewById(R.id.OpSum);
         for (int i = 0; i < Money.OpCount; i++) {
             LinearLayout Mon = (LinearLayout)findViewById(R.id.Mon);
-            comm.setText(Budget.moneyQueue.get(i).comment);
-            own.setText(Budget.moneyQueue.get(i).owner);
-            if(Budget.moneyQueue.get(i).income) {
-                sum.setText(Budget.moneyQueue.get(i).sum);
+            comm.setText(MainActivity.moneyQueue.get(i).comment);
+            own.setText(MainActivity.moneyQueue.get(i).owner);
+            if(MainActivity.moneyQueue.get(i).income) {
+                sum.setText(MainActivity.moneyQueue.get(i).sum);
             }
             else {
-                sum.setText("- " + Budget.moneyQueue.get(i).sum);
+                sum.setText("- " + MainActivity.moneyQueue.get(i).sum);
             }
             OpQueue.addView(Mon);
         }

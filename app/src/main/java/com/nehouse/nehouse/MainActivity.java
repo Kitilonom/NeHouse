@@ -17,6 +17,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.nehouse.nehouse.Model.Event;
+import com.nehouse.nehouse.Model.Purchase;
 import com.nehouse.nehouse.Model.User;
 
 import java.util.ArrayList;
@@ -29,16 +31,27 @@ public class MainActivity extends AppCompatActivity {
     public static User user;
     public static boolean AUTH = false;
 
+
         Dialog gDialog, nGroup;
         public static ArrayList<String> myWishes;
-        public static int count;
+        public static int count, evCount, accCount, opCount, purCount;
+        public static ArrayList<Event> eventQueue;
+        public static  ArrayList<Purchase> purchaseQueue;
+        public static  ArrayList<Money> moneyQueue;
+        public static ArrayList<Accounts> accQueue;
+        public  static ArrayList<String> accList;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
+
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_main);
 
             count = 0;
+            evCount = 0;
+            accCount = 0;
+            opCount = 0;
+            purCount = 0;
 
             if (!AUTH) {
                 Intent intent = new Intent(MainActivity.this, com.nehouse.nehouse.WelcomePage.class);
@@ -49,13 +62,24 @@ public class MainActivity extends AppCompatActivity {
             gDialog.setContentView(R.layout.choose_group);
             gDialog.show();
 
+            accList = new ArrayList<>();
+            eventQueue = new ArrayList<>();
+            purchaseQueue = new ArrayList<>();
+            moneyQueue = new ArrayList<>();
+            accQueue = new ArrayList<>();
             myWishes = new ArrayList<>();
+
+
+//            accQueue.add(new Accounts(1000, "long"));
+//            accCount++;
+//            accList.add("long");
+
 
          
                 usersDB.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        User user = dataSnapshot.getValue(User.class);
+                        user = dataSnapshot.getValue(User.class);
                         /**if (user.getImage().equals("default")) {
                             profile_image.setImageResource(R.mipmap.ic_launcher); //можно заменить человечком
                         } else {
@@ -79,7 +103,6 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
             }
-        }
 
         public void MainActivityCalendar (View view) {
             Intent intent = new Intent(MainActivity.this, Calendar.class);

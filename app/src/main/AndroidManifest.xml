@@ -58,10 +58,6 @@
             android:label="My WishList">
         </activity>
 
-        <activity android:name=".Notifications"
-            android:label="Notifications">
-        </activity>
-
         <activity android:name=".OperationsHistory"
             android:label="Operations History">
         </activity>
@@ -84,10 +80,6 @@
 
         <activity android:name=".WelcomePage"
             android:label="Welcome Page">
-        </activity>
-
-        <activity android:name=".Wishes"
-            android:label="Wishes">
         </activity>
 
         <activity android:name=".Wishlist"
