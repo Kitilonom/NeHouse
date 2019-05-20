@@ -25,6 +25,8 @@ import com.nehouse.nehouse.Model.User;
         private DatabaseReference refUser;
         private DatabaseReference refChats;
 
+        Dialog gDialog, nGroup;
+
         ImageView profile_image; //заполнить все поля  всех окон!!!!!где указываетс что-то о пользователе
 
         @Override
@@ -35,7 +37,7 @@ import com.nehouse.nehouse.Model.User;
             Intent intent = new Intent(MainActivity.this, com.nehouse.nehouse.WelcomePage.class);
             startActivity(intent);
 
-            Dialog gDialog = new Dialog(MainActivity.this);
+            gDialog = new Dialog(MainActivity.this);
             gDialog.setContentView(R.layout.choose_group);
             gDialog.show();
 
@@ -99,7 +101,7 @@ import com.nehouse.nehouse.Model.User;
         }
 
         public void MainActivityWishlist (View view) {
-            Intent intent = new Intent(MainActivity.this, Wishes.class);
+            Intent intent = new Intent(MainActivity.this, MyWishlist.class);
             startActivity(intent);
         }
 
@@ -109,13 +111,14 @@ import com.nehouse.nehouse.Model.User;
         }
 
         public void NewGroup(View view) {
-            Dialog nGroup = new Dialog(MainActivity.this);
+            nGroup = new Dialog(MainActivity.this);
             nGroup.setContentView(R.layout.new_group);
             nGroup.show();
         }
 
         public void NewGroupConfirm(View view) {
-            finish();
+            gDialog.dismiss();
+            nGroup.dismiss();
         }
 
     }

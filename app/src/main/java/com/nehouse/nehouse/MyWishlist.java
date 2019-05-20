@@ -43,7 +43,7 @@ public class MyWishlist extends AppCompatActivity {
         EditText txt = (EditText)findViewById(R.id.newWish);
         String text = txt.getText().toString();
         wish.setText(text);
-        wish.setLayoutParams(lp);
+        //wish.setLayoutParams(lp);
         wish.setBackgroundResource(R.drawable.button_desidn);
         wish.setTextColor(getResources().getColor(R.color.colorWhite));
         wish.setPadding(5, 5, 5, 5);
