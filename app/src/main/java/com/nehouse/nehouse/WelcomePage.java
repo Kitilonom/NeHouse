@@ -20,9 +20,6 @@ import com.google.firebase.auth.FirebaseUser;
 import static android.content.ContentValues.TAG;
 
 
-/**
- * Created by TotallySpies on 01.05.2019
- */
 
 public class WelcomePage extends Activity {
 
@@ -90,21 +87,6 @@ public class WelcomePage extends Activity {
                     }
                 });
     }
-
-   /** public void getCurrentUser() {
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        if (user != null) {
-            // Name, email address, and profile photo Url
-            String name = user.getDisplayName();
-            String email = user.getEmail();
-            Uri photoUrl = user.getPhotoUrl();
-
-            // Check if user's email is verified
-            boolean emailVerified = user.isEmailVerified();
-
-            String uid = user.getUid();
-        }
-    }*/
 
 
     public void WelcomePageLogOn (View view) {

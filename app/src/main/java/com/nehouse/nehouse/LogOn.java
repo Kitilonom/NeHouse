@@ -87,9 +87,10 @@ public class LogOn extends Activity {
 
                             HashMap<String, String> user_info = new HashMap<>();
                             user_info.put("id", userID);
-                            user_info.put("username", userName);
+                            user_info.put("name", userName);
                             user_info.put("password", password);
                             user_info.put("email", email);
+                            user_info.put("image", "default");
 
                             usersDB.child(userID).setValue(user_info).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override

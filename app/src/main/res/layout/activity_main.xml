@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:text="Calendar"
+        android:textColor="@color/colorWhite"
         android:layout_weight="1"
         android:background="@drawable/main_menu_design"
         android:onClick="MainActivityCalendar"/>
@@ -24,6 +25,7 @@
         android:layout_marginHorizontal="5dp"
         android:layout_weight="1"
         android:text="Budget"
+        android:textColor="@color/colorWhite"
         android:background="@drawable/main_menu_design"
         android:onClick="MainActivityBudget"/>
 
@@ -34,7 +36,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:background="@drawable/main_menu_design"
-        android:text="notifications"
+        android:text="Chats"
+        android:textColor="@color/colorWhite"
         android:onClick="MainActivityNotifications"/>
 
     <Button
@@ -44,6 +47,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="5dp"
         android:text="Shopping list"
+        android:textColor="@color/colorWhite"
         android:background="@drawable/main_menu_design"
         android:onClick="MainActivityShoppingList"/>
 
@@ -55,6 +59,7 @@
         android:layout_margin="5dp"
         android:text="contacts"
         android:background="@drawable/main_menu_design"
+        android:textColor="@color/colorWhite"
         android:onClick="MainActivityContacts"/>
 
     <Button
@@ -64,6 +69,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="5dp"
         android:text="wishlist"
+        android:textColor="@color/colorWhite"
         android:background="@drawable/main_menu_design"
         android:onClick="MainActivityWishlist"/>
 
@@ -74,6 +80,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:text="settings"
+        android:textColor="@color/colorWhite"
         android:background="@drawable/main_menu_design"
         android:onClick="MainActivitySettings"/>
 </LinearLayout>

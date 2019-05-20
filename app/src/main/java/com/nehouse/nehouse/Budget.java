@@ -44,11 +44,11 @@ public class Budget extends AppCompatActivity{
         ExpenseDialog.setContentView(R.layout.expense);
 
 
-        AutoCompleteTextView chooseAcc1 = (AutoCompleteTextView)findViewById(R.id.ExpenseOwner); //установка выпадающего списка
+  /**    AutoCompleteTextView chooseAcc1 = (AutoCompleteTextView)findViewById(R.id.ExpenseOwner); //установка выпадающего списка
         chooseAcc1.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_dropdown_item_1line, Accounts.accList));
 
         AutoCompleteTextView chooseAcc2 = (AutoCompleteTextView)findViewById(R.id.IncomeOwner);
-        chooseAcc2.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_dropdown_item_1line, Accounts.accList));
+        chooseAcc2.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_dropdown_item_1line, Accounts.accList));*/
     }
 
    public void BudgetNewAccount (View view) {
