@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:background="@color/colorPrimary"
@@ -8,13 +9,50 @@
     android:layout_height="match_parent">
 
     <TextView
+
         android:id="@+id/UserID"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/button_desidn"
+        android:layout_width="258dp"
+        android:layout_height="56dp"
         android:layout_margin="25dp"
-        android:gravity="center"
-        />
+        android:background="@drawable/button_desidn"
+        android:textSize="18dp"
+        android:gravity="center" />
+
+    <TextView
+        android:id="@+id/AccName"
+        android:layout_margin="25dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Name"
+        android:inputType="textPersonName" />
+
+    <TextView
+        android:id="@+id/AccDateOfBirth"
+        android:layout_margin="25dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Date of birth"
+        android:inputType="date"/>
+
+    <TextView
+        android:id="@+id/AccProfileEmail"
+        android:layout_margin="25dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="textEmailAddress"/>
+
+    <TextView
+        android:id="@+id/AccProfilePhone"
+        android:layout_margin="25dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Phone number"
+        android:inputType="phone"/>
 
     <Button
         android:id="@+id/ProfileEdit"
@@ -24,7 +62,7 @@
         android:gravity="center"
         android:background="@drawable/button_desidn"
         android:text="Edit Profile"
-        android:onClick="SettingsProfile"
+        android:onClick="SettingsEditProfile"
         />
 
     <Button
@@ -35,9 +73,7 @@
         android:gravity="center"
         android:background="@drawable/button_desidn"
         android:text="log out"
-        android:onClick="SettingsPassword"
+        android:onClick="SettingsLogOut"
         />
-
-
 
 </LinearLayout>
