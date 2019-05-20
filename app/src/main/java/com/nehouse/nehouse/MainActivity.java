@@ -1,5 +1,6 @@
 package com.nehouse.nehouse;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -34,6 +35,9 @@ import com.nehouse.nehouse.Model.User;
             Intent intent = new Intent(MainActivity.this, com.nehouse.nehouse.WelcomePage.class);
             startActivity(intent);
 
+            Dialog gDialog = new Dialog(MainActivity.this);
+            gDialog.setContentView(R.layout.choose_group);
+            gDialog.show();
 
             firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
             if(firebaseUser != null) {
@@ -102,6 +106,16 @@ import com.nehouse.nehouse.Model.User;
         public void MainActivitySettings (View view) {
             Intent intent = new Intent(MainActivity.this, Settings.class);
             startActivity(intent);
+        }
+
+        public void NewGroup(View view) {
+            Dialog nGroup = new Dialog(MainActivity.this);
+            nGroup.setContentView(R.layout.new_group);
+            nGroup.show();
+        }
+
+        public void NewGroupConfirm(View view) {
+            finish();
         }
 
     }
