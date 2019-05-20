@@ -19,13 +19,17 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.nehouse.nehouse.Model.User;
 
-    public class MainActivity extends AppCompatActivity {
+import java.util.ArrayList;
+
+public class MainActivity extends AppCompatActivity {
 
         private FirebaseUser firebaseUser; //выход из профиля
         private DatabaseReference refUser;
         private DatabaseReference refChats;
 
         Dialog gDialog, nGroup;
+        public static ArrayList<String> myWishes;
+        public static int count;
 
         ImageView profile_image; //заполнить все поля  всех окон!!!!!где указываетс что-то о пользователе
 
@@ -34,12 +38,16 @@ import com.nehouse.nehouse.Model.User;
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_main);
 
+            count = 0;
+
             Intent intent = new Intent(MainActivity.this, com.nehouse.nehouse.WelcomePage.class);
             startActivity(intent);
 
             gDialog = new Dialog(MainActivity.this);
             gDialog.setContentView(R.layout.choose_group);
             gDialog.show();
+
+            myWishes = new ArrayList<>();
 
             firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
             if(firebaseUser != null) {
