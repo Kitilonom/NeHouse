@@ -36,6 +36,13 @@ public class LogOn extends Activity {
         mAuth = FirebaseAuth.getInstance();
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        updateUI(currentUser);
+    }
+
     public void LogOnLogOn (View view) {
         String _password = GetPassword();
         String _email = GetEmail();
@@ -109,7 +116,9 @@ public class LogOn extends Activity {
 
     private void updateUI(FirebaseUser user) {
         MainActivity.currentUser = user;
-        if (user != null)
-            finish();
+        if (user != null) {
+            Intent intent = new Intent(LogOn.this, Choose_group.class);
+            startActivity(intent);
+        }
     }
 }

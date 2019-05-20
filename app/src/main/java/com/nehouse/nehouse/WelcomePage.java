@@ -33,6 +33,13 @@ public class WelcomePage extends Activity {
         mAuth = FirebaseAuth.getInstance();
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        updateUI(currentUser);
+    }
+
     public void WelcomePageLogIn (View view) {
         String _password = GetPassword();
         String _email = GetEmail();
@@ -64,7 +71,6 @@ public class WelcomePage extends Activity {
                         if (task.isSuccessful()) {
                             Log.d(TAG, "signInWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
-                            MainActivity.AUTH = true;
                             updateUI(user);
                         } else {
                             Log.w(TAG, "signInWithEmail:failure", task.getException());
