@@ -23,15 +23,15 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-        private FirebaseUser firebaseUser; //выход из профиля
-        private DatabaseReference refUser;
-        private DatabaseReference refChats;
+    public static FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+    public static DatabaseReference usersDB = FirebaseDatabase.getInstance().getReference("Users");
+    public static DatabaseReference chatsDB = FirebaseDatabase.getInstance().getReference("Chats");
+    public static User user;
+    public static boolean AUTH = false;
 
         Dialog gDialog, nGroup;
         public static ArrayList<String> myWishes;
         public static int count;
-
-        ImageView profile_image; //заполнить все поля  всех окон!!!!!где указываетс что-то о пользователе
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -40,8 +40,10 @@ public class MainActivity extends AppCompatActivity {
 
             count = 0;
 
-            Intent intent = new Intent(MainActivity.this, com.nehouse.nehouse.WelcomePage.class);
-            startActivity(intent);
+            if (!AUTH) {
+                Intent intent = new Intent(MainActivity.this, com.nehouse.nehouse.WelcomePage.class);
+                startActivity(intent);
+            }
 
             gDialog = new Dialog(MainActivity.this);
             gDialog.setContentView(R.layout.choose_group);
@@ -49,12 +51,8 @@ public class MainActivity extends AppCompatActivity {
 
             myWishes = new ArrayList<>();
 
-            firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-            if(firebaseUser != null) {
-                refUser = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
-                refChats = FirebaseDatabase.getInstance().getReference("Chats");
-
-                refUser.addValueEventListener(new ValueEventListener() {
+         
+                usersDB.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         User user = dataSnapshot.getValue(User.class);
@@ -71,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
                 });
 
 
-                refChats.addValueEventListener(new ValueEventListener() {
+                chatsDB.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     }
