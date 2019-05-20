@@ -29,22 +29,23 @@
         android:layout_height="wrap_content">
 
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/newWish"
             android:layout_weight="100"
             android:layout_marginRight="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
-            android:hint="New Wish" />
+            android:hint="New Wish"/>
 
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/buttonAdd"
             android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/button_desidn"
-            android:text="Add" />
+            android:text="Add"
+            android:onClick="addWish" />
 
     </LinearLayout>
 
