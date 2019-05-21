@@ -48,8 +48,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-        final User user = mUsers.get(position);
-        holder.username.setText(user.getName());
+
 
         /**if (ischat){
             lastMessage(user.getId(), holder.last_msg);

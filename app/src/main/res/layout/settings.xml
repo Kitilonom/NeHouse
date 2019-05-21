@@ -25,6 +25,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Name"
+        android:background="@drawable/button_desidn"
         android:inputType="textPersonName" />
 
     <TextView
@@ -33,6 +34,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:background="@drawable/button_desidn"
         android:hint="Date of birth"
         android:inputType="date"/>
 
@@ -43,6 +45,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Email"
+        android:background="@drawable/button_desidn"
         android:inputType="textEmailAddress"/>
 
     <TextView
@@ -52,6 +55,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Phone number"
+        android:background="@drawable/button_desidn"
         android:inputType="phone"/>
 
     <Button
