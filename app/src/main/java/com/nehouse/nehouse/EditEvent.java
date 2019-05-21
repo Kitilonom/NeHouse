@@ -39,5 +39,6 @@ public class EditEvent extends AppCompatActivity {
         MainActivity.purchaseQueue.add(new Purchase(cost, pur));
         MainActivity.purCount++;
 
+        finish();
     }
 }
