@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.EditText;
+import android.widget.Toast;
 
 
 import com.bumptech.glide.Glide;
@@ -22,13 +24,17 @@ import com.nehouse.nehouse.Model.Purchase;
 import com.nehouse.nehouse.Model.User;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     public static FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
     public static DatabaseReference usersDB = FirebaseDatabase.getInstance().getReference("Users");
     public static DatabaseReference chatsDB = FirebaseDatabase.getInstance().getReference("Chats");
+	public static DatabaseReference groupDB = FirebaseDatabase.getInstance().getReference("Groups");
     public static User user;
+    public static Group group;
     public static boolean AUTH = false;
 
 
@@ -53,14 +59,12 @@ public class MainActivity extends AppCompatActivity {
             opCount = 0;
             purCount = 0;
 
-            if (!AUTH) {
+            if (currentUser == null) {
                 Intent intent = new Intent(MainActivity.this, com.nehouse.nehouse.WelcomePage.class);
                 startActivity(intent);
             }
 
-            gDialog = new Dialog(MainActivity.this);
-            gDialog.setContentView(R.layout.choose_group);
-            gDialog.show();
+            
 
             accList = new ArrayList<>();
             eventQueue = new ArrayList<>();
@@ -80,11 +84,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         user = dataSnapshot.getValue(User.class);
-                        /**if (user.getImage().equals("default")) {
-                            profile_image.setImageResource(R.mipmap.ic_launcher); //можно заменить человечком
-                        } else {
-                            Glide.with(MainActivity.this).load(user.getImage()).into(profile_image);
-                        }*/
+                        
                     }
 
                     @Override
@@ -137,17 +137,6 @@ public class MainActivity extends AppCompatActivity {
         public void MainActivitySettings (View view) {
             Intent intent = new Intent(MainActivity.this, Settings.class);
             startActivity(intent);
-        }
-
-        public void NewGroup(View view) {
-            nGroup = new Dialog(MainActivity.this);
-            nGroup.setContentView(R.layout.new_group);
-            nGroup.show();
-        }
-
-        public void NewGroupConfirm(View view) {
-            gDialog.dismiss();
-            nGroup.dismiss();
         }
 
     }
