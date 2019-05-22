@@ -2,11 +2,11 @@ package com.nehouse.nehouse.Model;
 
 import java.util.ArrayList;
 
-public class Messages {
+public class Message {
     private ArrayList<String> mesList;
     private String chat;
 
-    public Messages() {
+    public Message() {
     }
 
     public String getChat() {
@@ -17,9 +17,13 @@ public class Messages {
         return mesList;
     }
 
-    public  Messages(ArrayList<String> list, String _chat){
+    public  Message(ArrayList<String> list, String _chat){
         mesList = list;
         chat = _chat;
+    }
+
+    public void setMessage(String mes){
+        mesList.add(mes);
     }
 }
 

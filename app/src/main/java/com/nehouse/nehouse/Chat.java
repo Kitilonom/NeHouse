@@ -2,29 +2,26 @@ package com.nehouse.nehouse;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Message;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-import com.nehouse.nehouse.Model.Messages;
-import com.nehouse.nehouse.Model.User;
+import com.nehouse.nehouse.Model.Group;
 
-import java.util.Date;
 import java.util.HashMap;
+import java.util.Map;
 
 public class Chat extends AppCompatActivity {
     LinearLayout parent;
@@ -64,10 +61,47 @@ public class Chat extends AppCompatActivity {
 
     public void ChatSend(View view) {
         String sender = MainActivity.currentUser.getUid();
+        String chat = MainActivity.user.getGroupID();
+
+        EditText ETmessage = findViewById(R.id.editText2);
+        final String message = ETmessage.getText().toString();
+
+        /**TextView mes = new TextView(Chat.this);
+        mes.setText(message);
+        mes.setBackgroundResource(R.drawable.button_desidn);
+        mes.setLayoutParams(lp);
+        mes.setGravity(Gravity.CENTER);
+        parent.addView(mes);
+        HashMap<String, Object> hm = new HashMap<>();
+        hm.put("sender", sender);
+        hm.put("receiver", receiver);
+        hm.put("message", message );*/
+
+        MainActivity.messagesDB.child(chat).child("sender").setValue(sender).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                Toast.makeText(Chat.this, "Succesfull1.",
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
+        final String key = MainActivity.messagesDB.child(chat).push().getKey();
+        Map<String, Object> mes = new HashMap<>();
+        mes.put(key, message);
+        MainActivity.messagesDB.child(chat).updateChildren(mes).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                Toast.makeText(Chat.this, "Succesfull2.",
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    public void ReadMessages(View view) {
+        String sender = MainActivity.currentUser.getUid();
         String receiver = MainActivity.group.getName();
 
         EditText ETmessage = findViewById(R.id.editText2);
-        String message = ETmessage.getText().toString();
+        final String message = ETmessage.getText().toString();
         TextView mes = new TextView(Chat.this);
         mes.setText(message);
         mes.setBackgroundResource(R.drawable.button_desidn);
@@ -80,7 +114,32 @@ public class Chat extends AppCompatActivity {
         hm.put("receiver", receiver);
         hm.put("message", message );
 
-        MainActivity.messagesDB.child("receiver").push().setValue(hm);
+        MainActivity.messagesDB.child(MainActivity.user.getGroupID()).addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+            }
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) { //очишение всей ленты
+               // MainActivity.message = dataSnapshot.getValue(Message.class);
+               // if() {}
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 
 }

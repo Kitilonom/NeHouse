@@ -6,12 +6,8 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.EditText;
-import android.widget.Toast;
 
 
-import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -21,13 +17,12 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.nehouse.nehouse.Model.Event;
 import com.nehouse.nehouse.Model.Group;
-import com.nehouse.nehouse.Model.Messages;
+import com.nehouse.nehouse.Model.Message;
+import com.nehouse.nehouse.Model.MyChat;
 import com.nehouse.nehouse.Model.Purchase;
 import com.nehouse.nehouse.Model.User;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -37,7 +32,8 @@ public class MainActivity extends AppCompatActivity {
 	public static DatabaseReference groupDB = FirebaseDatabase.getInstance().getReference("Groups");
     public static User user;
     public static Group group;
-    public static Messages message;
+    public static Message message;
+    public static MyChat chat;
     public static boolean AUTH = false;
 
         public static ArrayList<String> myWishes;

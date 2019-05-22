@@ -55,10 +55,10 @@ public class NewGroup extends AppCompatActivity {
                 } else {
                     MainActivity.user.setGroupID(name);
                     final DataSnapshot ds = dataSnapshot;
-                    final String key = MainActivity.groupDB.child(name).child("friends").push().getKey();
+                    final String key = MainActivity.groupDB.child("friends").push().getKey();
                     Map<String, Object> info = new HashMap<>();
                     info.put(key, MainActivity.currentUser.getUid());
-                    MainActivity.groupDB.child(name).child("friends").updateChildren(info).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    MainActivity.groupDB.child(name).updateChildren(info).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             MainActivity.group = ds.getValue(Group.class);
