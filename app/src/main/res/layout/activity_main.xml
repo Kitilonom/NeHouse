@@ -38,7 +38,7 @@
         android:background="@drawable/main_menu_design"
         android:text="Chat"
         android:textColor="@color/colorWhite"
-        android:onClick="MainActivityNotifications"/>
+        android:onClick="MainActivityChat"/>
 
     <Button
         android:id="@+id/ShoppingListButton"

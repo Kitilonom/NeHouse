@@ -32,13 +32,14 @@ public class Chat extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.chat);
-
         if (MainActivity.user.getGroupID() == null) {
             Intent intent = new Intent(Chat.this, ChooseGroup.class);
             startActivity(intent);
         }
+
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.chat);
+
 
             lp.setMargins(25, 5,25,5);
             parent = (LinearLayout)findViewById(R.id.MessageQueue);

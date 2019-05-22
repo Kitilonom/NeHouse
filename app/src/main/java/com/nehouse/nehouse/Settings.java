@@ -23,14 +23,13 @@ public class Settings extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.settings);
 
-        String id = MainActivity.currentUser.getUid(); // Вот тут надо вытащить ID из базы данных
         TextView userID = (TextView)this.findViewById(R.id.UserID); //переменная userID хранит TextView с id == "UserID"
         TextView name = (TextView)this.findViewById(R.id.AccName);
         TextView bday = (TextView)this.findViewById(R.id.AccDateOfBirth);
         TextView email = (TextView)this.findViewById(R.id.AccProfileEmail);
         TextView phone = (TextView)this.findViewById(R.id.AccProfilePhone);
 
-        userID.setText("UserID: " + System.getProperty("line.separator") + id);
+        userID.setText("UserID: " + System.getProperty("line.separator") + MainActivity.currentUser.getUid());
         name.setText("Name: " + MainActivity.user.getName());
         bday.setText("DateOfBirth: " + MainActivity.user.getBday());
         email.setText("Email: " + MainActivity.user.getEmail());

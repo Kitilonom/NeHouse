@@ -51,6 +51,11 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void onCreate(Bundle savedInstanceState) {
 
+            if (currentUser == null) {
+                Intent intent = new Intent(MainActivity.this, com.nehouse.nehouse.WelcomePage.class);
+                startActivity(intent);
+            }
+
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_main);
 
@@ -60,13 +65,6 @@ public class MainActivity extends AppCompatActivity {
             opCount = 0;
             purCount = 0;
 
-            if (currentUser == null) {
-                Intent intent = new Intent(MainActivity.this, com.nehouse.nehouse.WelcomePage.class);
-                startActivity(intent);
-            }
-
-            
-
             accList = new ArrayList<>();
             eventQueue = new ArrayList<>();
             purchaseQueue = new ArrayList<>();
@@ -74,21 +72,15 @@ public class MainActivity extends AppCompatActivity {
             accQueue = new ArrayList<>();
             myWishes = new ArrayList<>();
 
-         
-                usersDB.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        user = dataSnapshot.getValue(User.class);
-                        
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-                    }
-                });
-
-
-        
+            usersDB.child(currentUser.getUid()).addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    user = dataSnapshot.getValue(User.class);
+                }
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+                }
+            });
             }
 
         public void MainActivityCalendar (View view) {
@@ -101,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         }
 
-        public void MainActivityNotifications (View view) {
+        public void MainActivityChat (View view) {
             Intent intent = new Intent(MainActivity.this, Chat.class);
             startActivity(intent);
         }
