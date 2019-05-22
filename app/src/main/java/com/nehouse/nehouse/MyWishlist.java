@@ -15,12 +15,37 @@ import java.util.ArrayList;
 
 public class MyWishlist extends AppCompatActivity {
     LinearLayout parent;
+    static boolean first;
     LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 70, Gravity.CENTER);
+
+    public final View.OnLongClickListener lis = new View.OnLongClickListener() {
+        @Override
+        public boolean onLongClick(View view) {
+            if (first) {MainActivity.myWishes.remove(view.getId() - (int)1);}
+            else {MainActivity.myWishes.remove(view.getId());}
+            parent.removeAllViews();
+            MainActivity.count--;
+            for(int i = 0; i < MainActivity.count; i++) {
+                TextView wish = new TextView(MyWishlist.this);
+                wish.setText(MainActivity.myWishes.get(i));
+                wish.setBackgroundResource(R.drawable.button_desidn);
+                wish.setLayoutParams(lp);
+                wish.setId(i);
+                wish.setTextColor(getResources().getColor(R.color.colorWhite));
+                wish.setGravity(Gravity.CENTER);
+                wish.setOnLongClickListener(lis);
+                parent.addView(wish);
+            }
+            first = false;
+            return true;
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.my_wishlist);
+        first = true;
 
 
         lp.setMargins(25, 10,25,0);
@@ -34,6 +59,7 @@ public class MyWishlist extends AppCompatActivity {
                 wish.setId(i);
                 wish.setTextColor(getResources().getColor(R.color.colorWhite));
                 wish.setGravity(Gravity.CENTER);
+                wish.setOnLongClickListener(lis);
                 parent.addView(wish);
             }
         }
@@ -49,14 +75,7 @@ public class MyWishlist extends AppCompatActivity {
         wish.setGravity(Gravity.CENTER);
         wish.setId(++MainActivity.count);
         wish.setTextColor(getResources().getColor(R.color.colorWhite));
-        wish.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                MainActivity.myWishes.remove(view.getId());
-                MainActivity.count--;
-                parent.removeView(view);
-                return true;
-            }});
+        wish.setOnLongClickListener(lis);
         parent.addView(wish);
         MainActivity.myWishes.add(text);
         txt.setText(null);
