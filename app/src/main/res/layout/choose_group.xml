@@ -5,7 +5,7 @@
     android:layout_height = "match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="@drawable/dialog_design">
+    android:background="@color/colorPrimary">
 
     <TextView
         android:id="@+id/ChGroup"
@@ -30,7 +30,7 @@
         android:id="@+id/ChoosenGroupButton"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/dialog_button"
+        android:background="@drawable/button_desidn"
         android:text="Search"
         android:layout_margin="25dp"
         android:onClick="ChoosenGroup"/>
@@ -39,7 +39,7 @@
         android:id="@+id/NewGroupButton"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/dialog_button"
+        android:background="@drawable/button_desidn"
         android:text="New Group"
         android:layout_margin="25dp"
         android:onClick="NewGroup"/>

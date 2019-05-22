@@ -30,7 +30,7 @@ public class Settings extends AppCompatActivity {
         TextView email = (TextView)this.findViewById(R.id.AccProfileEmail);
         TextView phone = (TextView)this.findViewById(R.id.AccProfilePhone);
 
-        userID.setText("UserID: " + id);
+        userID.setText("UserID: " + System.getProperty("line.separator") + id);
         name.setText("Name: " + MainActivity.user.getName());
         bday.setText("DateOfBirth: " + MainActivity.user.getBday());
         email.setText("Email: " + MainActivity.user.getEmail());

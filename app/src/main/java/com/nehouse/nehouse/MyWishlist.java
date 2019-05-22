@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 public class MyWishlist extends AppCompatActivity {
     LinearLayout parent;
-    LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT,Gravity.CENTER);
+    LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 70, Gravity.CENTER);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +23,7 @@ public class MyWishlist extends AppCompatActivity {
         setContentView(R.layout.my_wishlist);
 
 
-        lp.setMargins(25, 5,25,5);
+        lp.setMargins(25, 10,25,0);
         parent = (LinearLayout)findViewById(R.id.MyWishesQueue);
         if (MainActivity.count != 0) {
             for(int i = 0; i < MainActivity.count; i++) {
@@ -31,6 +31,7 @@ public class MyWishlist extends AppCompatActivity {
                 wish.setText(MainActivity.myWishes.get(i));
                 wish.setBackgroundResource(R.drawable.button_desidn);
                 wish.setLayoutParams(lp);
+                wish.setTextColor(0);
                 wish.setGravity(Gravity.CENTER);
                 parent.addView(wish);
             }
@@ -45,6 +46,7 @@ public class MyWishlist extends AppCompatActivity {
         wish.setBackgroundResource(R.drawable.button_desidn);
         wish.setLayoutParams(lp);
         wish.setGravity(Gravity.CENTER);
+        wish.setTextColor(0);
         parent.addView(wish);
         MainActivity.myWishes.add(text);
         txt.setText(null);
