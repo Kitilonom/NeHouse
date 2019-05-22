@@ -45,6 +45,8 @@ public class ChooseGroup extends AppCompatActivity {
         EditText ETname = (EditText) findViewById(R.id.ChooseGroup);
         final String name =  ETname.getText().toString();
 
+
+        
         MainActivity.groupDB.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
