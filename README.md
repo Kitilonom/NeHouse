@@ -1,5 +1,5 @@
-# Home Assistant  ![enter image description here](https://pp.userapi.com/c846120/v846120779/20bc70/8G7CBuAnaL8.jpg)
----
+# Home Assistant  ![enter image description here](https://pp.userapi.com/c846320/v846320779/20c411/Vawla7X38so.jpg)
+
 Мобильное многопользовательское приложение под android. С его помощью можно отслеживать и оптимизировать свои финансы, время, домашний быт. Есть возможность объединяться в группы и передавать сообщения в режиме реального времени всем пользователям своей группы.
 ---
 
