@@ -46,7 +46,7 @@
             android:label="Forgot Password">
         </activity>
 
-        <activity android:name=".Group"
+        <activity android:name=".Groups"
             android:label="Group">
         </activity>
 
@@ -79,11 +79,19 @@
         </activity>
 
         <activity android:name=".WelcomePage"
-            android:label="Welcome Page">
+        android:label="Welcome Page">
         </activity>
 
         <activity android:name=".Wishlist"
             android:label="Wishlist">
+        </activity>
+
+        <activity android:name=".NewGroup"
+            android:label="NewGroup">
+        </activity>
+
+        <activity android:name=".ChooseGroup"
+            android:label="ChooseGroup">
         </activity>
 
     </application>

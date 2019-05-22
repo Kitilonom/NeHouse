@@ -18,13 +18,22 @@
         android:textColor="#ffffff"
         android:textSize="25dp" />
 
-    <AutoCompleteTextView
-        android:id="@+id/chooseGroup"
+    <EditText
+        android:id="@+id/ChooseGroup"
         android:layout_width="match_parent"
         android:layout_margin="25dp"
         android:layout_height="wrap_content"
         android:inputType="textAutoComplete"
         android:hint="Start typing group name"/>
+
+    <Button
+        android:id="@+id/ChoosenGroupButton"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/dialog_button"
+        android:text="Search"
+        android:layout_margin="25dp"
+        android:onClick="ChoosenGroup"/>
 
     <Button
         android:id="@+id/NewGroupButton"

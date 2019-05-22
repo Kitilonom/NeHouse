@@ -15,7 +15,6 @@ public class User {
     private static String password;
     private static String groupID;
     private static String bday;
-    private static String image;
 
     private User() {
     }
@@ -70,5 +69,9 @@ public class User {
         result.put("bday", bday);
 
         return  result;
+    }
+
+    public void setGroupID(String key) {
+        groupID = key;
     }
 }

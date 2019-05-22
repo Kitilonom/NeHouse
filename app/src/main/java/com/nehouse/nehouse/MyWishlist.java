@@ -47,6 +47,7 @@ public class MyWishlist extends AppCompatActivity {
         wish.setGravity(Gravity.CENTER);
         parent.addView(wish);
         MainActivity.myWishes.add(text);
+        txt.setText(null);
         MainActivity.count++;
     }
 

@@ -20,6 +20,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.nehouse.nehouse.Model.Event;
+import com.nehouse.nehouse.Model.Group;
+import com.nehouse.nehouse.Model.Messages;
 import com.nehouse.nehouse.Model.Purchase;
 import com.nehouse.nehouse.Model.User;
 
@@ -31,14 +33,13 @@ public class MainActivity extends AppCompatActivity {
 
     public static FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
     public static DatabaseReference usersDB = FirebaseDatabase.getInstance().getReference("Users");
-    public static DatabaseReference chatsDB = FirebaseDatabase.getInstance().getReference("Chats");
+    public static DatabaseReference messagesDB = FirebaseDatabase.getInstance().getReference("Messages");
 	public static DatabaseReference groupDB = FirebaseDatabase.getInstance().getReference("Groups");
     public static User user;
     public static Group group;
+    public static Messages message;
     public static boolean AUTH = false;
 
-
-        Dialog gDialog, nGroup;
         public static ArrayList<String> myWishes;
         public static int count, evCount, accCount, opCount, purCount;
         public static ArrayList<Event> eventQueue;
@@ -73,12 +74,6 @@ public class MainActivity extends AppCompatActivity {
             accQueue = new ArrayList<>();
             myWishes = new ArrayList<>();
 
-
-//            accQueue.add(new Accounts(1000, "long"));
-//            accCount++;
-//            accList.add("long");
-
-
          
                 usersDB.addValueEventListener(new ValueEventListener() {
                     @Override
@@ -93,15 +88,7 @@ public class MainActivity extends AppCompatActivity {
                 });
 
 
-                chatsDB.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-                    }
-                });
+        
             }
 
         public void MainActivityCalendar (View view) {
@@ -123,11 +110,12 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this, ShoppingList.class);
             startActivity(intent);
         }
-
-        public void MainActivityContacts (View view) {
-            Intent intent = new Intent(MainActivity.this, Contacts.class);
+		
+  public void MainActivityGroup (View view) {
+            Intent intent = new Intent(MainActivity.this, Chat.class);
             startActivity(intent);
         }
+    
 
         public void MainActivityWishlist (View view) {
             Intent intent = new Intent(MainActivity.this, MyWishlist.class);

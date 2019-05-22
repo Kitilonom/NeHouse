@@ -1,20 +1,37 @@
 package com.nehouse.nehouse.Model;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Group {
     private String name;
-    private String id;
-    private List<String> listUID;
-    private int count = 0;
+    private ArrayList<String> listUID;
 
     public Group() { }
 
-    public Group(String _name, String _id, ArrayList<String> _list, int _count) {
+    public Group(String _name, ArrayList<String> _list, int _count) {
         name = name;
-        count =  _count;
-        id = _id;
         listUID = _list;
+    }
+
+    public void setName(String _name) {
+        name = _name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setFriends(String uid) {
+        listUID.add(uid);
+    }
+
+    public Map<String, Object> toMap() {
+        HashMap<String, Object> res = new HashMap<>();
+        res.put("name", name);
+        res.put("list", listUID);
+        return res;
     }
 }

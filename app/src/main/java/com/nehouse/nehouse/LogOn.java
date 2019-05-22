@@ -117,7 +117,7 @@ public class LogOn extends Activity {
     private void updateUI(FirebaseUser user) {
         MainActivity.currentUser = user;
         if (user != null) {
-            Intent intent = new Intent(LogOn.this, Choose_group.class);
+            Intent intent = new Intent(LogOn.this, MainActivity.class);
             startActivity(intent);
         }
     }

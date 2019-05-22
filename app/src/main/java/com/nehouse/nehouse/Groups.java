@@ -19,7 +19,7 @@ import com.nehouse.nehouse.Model.User;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Group extends AppCompatActivity {
+public class Groups extends AppCompatActivity {
     private List<User> mUsers;
 
     @Override
