@@ -31,7 +31,8 @@ public class MyWishlist extends AppCompatActivity {
                 wish.setText(MainActivity.myWishes.get(i));
                 wish.setBackgroundResource(R.drawable.button_desidn);
                 wish.setLayoutParams(lp);
-                wish.setTextColor(0);
+                wish.setId(i);
+                wish.setTextColor(getResources().getColor(R.color.colorWhite));
                 wish.setGravity(Gravity.CENTER);
                 parent.addView(wish);
             }
@@ -46,25 +47,18 @@ public class MyWishlist extends AppCompatActivity {
         wish.setBackgroundResource(R.drawable.button_desidn);
         wish.setLayoutParams(lp);
         wish.setGravity(Gravity.CENTER);
-        wish.setTextColor(0);
+        wish.setId(++MainActivity.count);
+        wish.setTextColor(getResources().getColor(R.color.colorWhite));
+        wish.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                MainActivity.myWishes.remove(view.getId());
+                MainActivity.count--;
+                parent.removeView(view);
+                return true;
+            }});
         parent.addView(wish);
         MainActivity.myWishes.add(text);
         txt.setText(null);
-        MainActivity.count++;
     }
-
-//    public void addWish(View view) {
-//        EditText txt = (EditText)findViewById(R.id.newWish);
-//        String text = txt.getText().toString();
-//        TextView wish2 = new TextView(MyWishlist.this);
-//
-//        wish2.setText(text);
-//        wish2.setLayoutParams(lp);
-//        wish2.setBackgroundResource(R.drawable.button_desidn);
-//        wish2.setTextColor(getResources().getColor(R.color.colorWhite));
-//        wish2.setPadding(5, 5, 5, 5);
-//        parent.addView(wish2);
-//        myWishes.add(text);
-//        count++;
-//    }
 }

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="@drawable/dialog_design"
+    android:background="@color/colorPrimary"
     android:layout_height="match_parent">
 
     <TextView
@@ -36,7 +36,7 @@
         android:layout_height="wrap_content"
         android:text="confirm"
         android:gravity="center"
-        android:background="@drawable/dialog_button"
+        android:background="@drawable/button_desidn"
         android:onClick="NewGroupConfirm"
         />
 
