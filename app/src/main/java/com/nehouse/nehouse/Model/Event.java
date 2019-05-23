@@ -5,9 +5,9 @@ import com.nehouse.nehouse.MainActivity;
 import java.util.Date;
 
 public class Event {
-    String date;
+    public String date;
     String comment;
-    String eventType;
+    public String eventType;
     String purchase;
     int sum;
 
