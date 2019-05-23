@@ -26,6 +26,7 @@ import com.nehouse.nehouse.Model.User;
 import java.util.HashMap;
 
 import static android.content.ContentValues.TAG;
+import static com.nehouse.nehouse.MainActivity.currentUser;
 
 public class LogOn extends Activity {
 
@@ -43,7 +44,7 @@ public class LogOn extends Activity {
     @Override
     public void onStart() {
         super.onStart();
-        FirebaseUser currentUser = mAuth.getCurrentUser();
+        currentUser = mAuth.getCurrentUser();
         updateUI(currentUser);
     }
 
@@ -86,17 +87,22 @@ public class LogOn extends Activity {
                         if (task.isSuccessful()) {
                             Log.d(TAG, "createUserWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
-                            MainActivity.AUTH = true;
                             Toast.makeText(LogOn.this, "Authentication succesfull.",
                                     Toast.LENGTH_SHORT).show();
 
                             String userID = user.getUid();
+
+                            MainActivity.user = new User();
+                            MainActivity.user.setEmail(email);
+                            MainActivity.user.setId(userID);
 
                             HashMap<String, String> user_info = new HashMap<>();
                             user_info.put("id", userID);
                             user_info.put("name", userName);
                             user_info.put("password", password);
                             user_info.put("email", email);
+
+                            //MainActivity.user = new User(MainActivity.currentUser.getEmail(), MainActivity.currentUser.getUid());
 
                             MainActivity.usersDB.child(userID).setValue(user_info).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
@@ -120,7 +126,7 @@ public class LogOn extends Activity {
     }
 
     private void updateUI(FirebaseUser user) {
-        MainActivity.currentUser = user;
+        currentUser = user;
         if (user != null) {
             Intent intent = new Intent(LogOn.this, MainActivity.class);
             startActivity(intent);

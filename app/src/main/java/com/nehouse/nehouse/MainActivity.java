@@ -26,15 +26,14 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+    private FirebaseAuth mAuth;
+    public static FirebaseUser currentUser;
     public static DatabaseReference usersDB = FirebaseDatabase.getInstance().getReference("Users");
     public static DatabaseReference messagesDB = FirebaseDatabase.getInstance().getReference("Messages");
 	public static DatabaseReference groupDB = FirebaseDatabase.getInstance().getReference("Groups");
     public static User user;
     public static Group group;
-    public static Message message;
-    public static MyChat chat;
-    public static boolean AUTH = false;
+
 
         public static ArrayList<String> myWishes;
         public static int count, evCount, accCount, opCount, purCount;
@@ -47,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void onCreate(Bundle savedInstanceState) {
 
+            currentUser = FirebaseAuth.getInstance().getCurrentUser();
             if (currentUser == null) {
                 Intent intent = new Intent(MainActivity.this, com.nehouse.nehouse.WelcomePage.class);
                 startActivity(intent);
@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
             accQueue = new ArrayList<>();
             myWishes = new ArrayList<>();
 
-            usersDB.child(currentUser.getUid()).addValueEventListener(new ValueEventListener() {
+          /**  usersDB.child(currentUser.getUid()).addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     user = dataSnapshot.getValue(User.class);
@@ -76,16 +76,16 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onCancelled(@NonNull DatabaseError databaseError) {
                 }
-            });
+            });*/
             }
 
         public void MainActivityCalendar (View view) {
-            Intent intent = new Intent(MainActivity.this, Calendar.class);
+            Intent intent = new Intent(MainActivity.this, com.nehouse.nehouse.Calendar.class);
             startActivity(intent);
         }
 
         public void MainActivityBudget (View view) {
-            Intent intent = new Intent(MainActivity.this, Budget.class);
+            Intent intent = new Intent(MainActivity.this, com.nehouse.nehouse.Budget.class);
             startActivity(intent);
         }
 
@@ -106,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
     
 
         public void MainActivityWishlist (View view) {
-            Intent intent = new Intent(MainActivity.this, MyWishlist.class);
+            Intent intent = new Intent(MainActivity.this, com.nehouse.nehouse.MyWishlist.class);
             startActivity(intent);
         }
 

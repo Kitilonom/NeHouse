@@ -19,6 +19,7 @@ import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.nehouse.nehouse.Model.Group;
+import com.nehouse.nehouse.Model.MyChat;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -77,17 +78,12 @@ public class Chat extends AppCompatActivity {
         hm.put("receiver", receiver);
         hm.put("message", message );*/
 
-        MainActivity.messagesDB.child(chat).child("sender").setValue(sender).addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                Toast.makeText(Chat.this, "Succesfull1.",
-                        Toast.LENGTH_SHORT).show();
-            }
-        });
+        MyChat ch = new MyChat(sender, message);
+
         final String key = MainActivity.messagesDB.child(chat).push().getKey();
         Map<String, Object> mes = new HashMap<>();
         mes.put(key, message);
-        MainActivity.messagesDB.child(chat).updateChildren(mes).addOnCompleteListener(new OnCompleteListener<Void>() {
+        MainActivity.messagesDB.child(chat).child(key).setValue(ch).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 Toast.makeText(Chat.this, "Succesfull2.",

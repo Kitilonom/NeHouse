@@ -16,6 +16,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.nehouse.nehouse.Model.User;
 
 import static android.content.ContentValues.TAG;
 
@@ -36,8 +37,8 @@ public class WelcomePage extends Activity {
     @Override
     public void onStart() {
         super.onStart();
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        updateUI(currentUser);
+        currentUser = mAuth.getCurrentUser();
+        updateUI(MainActivity.currentUser);
     }
 
     public void WelcomePageLogIn (View view) {
@@ -71,6 +72,7 @@ public class WelcomePage extends Activity {
                         if (task.isSuccessful()) {
                             Log.d(TAG, "signInWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
+                            currentUser = user;
                             updateUI(user);
                         } else {
                             Log.w(TAG, "signInWithEmail:failure", task.getException());
@@ -95,6 +97,7 @@ public class WelcomePage extends Activity {
 
     private void updateUI(FirebaseUser user) {
         currentUser = user;
+        //MainActivity.currentUser = user;
         if (user != null) {
             Intent intent = new Intent(WelcomePage.this, MainActivity.class);
             startActivity(intent);

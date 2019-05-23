@@ -45,17 +45,24 @@ public class ChooseGroup extends AppCompatActivity {
         EditText ETname = (EditText) findViewById(R.id.ChooseGroup);
         final String name =  ETname.getText().toString();
 
-
-        
+        if (name.equals(null)) {
+            Toast.makeText(ChooseGroup.this, "Filed is required", Toast.LENGTH_SHORT).show();
+        } else {
         MainActivity.groupDB.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if(dataSnapshot.child(name).exists()) {
                     MainActivity.user.setGroupID(name);
+                    String userId = MainActivity.user.getId();
+
+                    HashMap<String, String> hm = new HashMap<>();
+                    hm.put("groupID", name);
+                    MainActivity.groupDB.child(userId).setValue(hm);
+
                     final DataSnapshot ds = dataSnapshot;
                     final String key = MainActivity.groupDB.child(name).push().getKey();
                     Map<String, Object> info = new HashMap<>();
-                    info.put(key, MainActivity.currentUser.getUid());
+                    info.put(key, userId);
                     MainActivity.groupDB.child(name).updateChildren(info).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
@@ -75,6 +82,7 @@ public class ChooseGroup extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError databaseError) {
             }
         });
+    }
     }
 }
 

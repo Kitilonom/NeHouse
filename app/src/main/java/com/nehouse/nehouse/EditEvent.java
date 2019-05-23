@@ -34,7 +34,6 @@ public class EditEvent extends AppCompatActivity {
         int cost = Integer.parseInt(ETcost.getText().toString());
 
         MainActivity.eventQueue.add(new Event(date, comm, type, pur, cost));
-        MainActivity.evCount++;
 
         MainActivity.purchaseQueue.add(new Purchase(cost, pur));
         MainActivity.purCount++;

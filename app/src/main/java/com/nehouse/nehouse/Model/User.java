@@ -12,19 +12,17 @@ public class User {
     private static String name;
     private static String phone;
     private static String email;
-    private static String password;
     private static String groupID;
     private static String bday;
 
-    private User() {
+    public User() {
     }
 
-    public User(String _id, String _name, String  _phone, String _email, String _password, String _groupID, String _bday) {
+    public User(String _id, String _name, String  _phone, String _email, String _groupID, String _bday) {
         id = _id;
         name = _name;
         phone = _phone;
         email = _email;
-        password = _password;
         groupID = _groupID;
         bday = _bday;
     }
@@ -45,10 +43,6 @@ public class User {
         return email;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
     public String getGroupID() {
         return groupID;
     }
@@ -62,7 +56,6 @@ public class User {
         HashMap<String, Object> result = new HashMap<>();
         result.put("id", id);
         result.put("name", name);
-        result.put("password", password);
         result.put("email", email);
         result.put("phone", phone);
         result.put("groupID", groupID);
@@ -71,7 +64,28 @@ public class User {
         return  result;
     }
 
+    public User(String _email, String _id) {
+        email= _email;
+        id = _id;
+    }
+
     public void setGroupID(String key) {
         groupID = key;
     }
+    public void setId(String key) {
+        id = key;
+    }
+    public void setPhone(String key) {
+        phone = key;
+    }
+    public void setEmail(String key) {
+        email = key;
+    }
+    public void setName(String key) {
+        name = key;
+    }
+    public void setBday(String key) {
+        bday = key;
+    }
+
 }

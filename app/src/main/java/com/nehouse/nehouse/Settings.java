@@ -28,12 +28,21 @@ public class Settings extends AppCompatActivity {
         TextView bday = (TextView)this.findViewById(R.id.AccDateOfBirth);
         TextView email = (TextView)this.findViewById(R.id.AccProfileEmail);
         TextView phone = (TextView)this.findViewById(R.id.AccProfilePhone);
+        TextView group = (TextView)this.findViewById(R.id.GroupName);
+
+        userID.setTextColor(getResources().getColor(R.color.colorWhite));
+        name.setTextColor(getResources().getColor(R.color.colorWhite));
+        bday.setTextColor(getResources().getColor(R.color.colorWhite));
+        email.setTextColor(getResources().getColor(R.color.colorWhite));
+        phone.setTextColor(getResources().getColor(R.color.colorWhite));
+        group.setTextColor(getResources().getColor(R.color.colorWhite));
 
         userID.setText("UserID: " + System.getProperty("line.separator") + MainActivity.currentUser.getUid());
         name.setText("Name: " + MainActivity.user.getName());
         bday.setText("DateOfBirth: " + MainActivity.user.getBday());
         email.setText("Email: " + MainActivity.user.getEmail());
         phone.setText("Phone: " + MainActivity.user.getPhone());
+        group.setText("Group: " + MainActivity.user.getGroupID());
     }
 
     public void SettingsEditProfile (View view) {

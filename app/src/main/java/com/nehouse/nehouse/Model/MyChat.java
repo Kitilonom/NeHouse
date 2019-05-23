@@ -2,19 +2,14 @@ package com.nehouse.nehouse.Model;
 
 public class MyChat {
     private String sender;
-    private String receiver;
     private String message;
-    private boolean isseen;
 
-    public MyChat(String sender, String receiver, String message, boolean isseen) {
+    public MyChat(String sender, String message) {
         this.sender = sender;
-        this.receiver = receiver;
         this.message = message;
-        this.isseen = isseen;
     }
 
-    public MyChat() {
-    }
+    public MyChat() {}
 
     public String getSender() {
         return sender;
@@ -22,14 +17,6 @@ public class MyChat {
 
     public void setSender(String sender) {
         this.sender = sender;
-    }
-
-    public String getReceiver() {
-        return receiver;
-    }
-
-    public void setReceiver(String receiver) {
-        this.receiver = receiver;
     }
 
     public String getMessage() {
@@ -40,11 +27,4 @@ public class MyChat {
         this.message = message;
     }
 
-    public boolean isIsseen() {
-        return isseen;
-    }
-
-    public void setIsseen(boolean isseen) {
-        this.isseen = isseen;
-    }
 }

@@ -42,6 +42,10 @@ public class Profile extends Activity {
         String ProfilePhone = ETProfilePhone.getText().toString();
 
         if (Check(name, DateOfBirth, ProfilePhone)) {
+            MainActivity.user.setName(name);
+            MainActivity.user.setBday(DateOfBirth);
+            MainActivity.user.setPhone(ProfilePhone);
+
             updateUInfo(name, DateOfBirth, ProfilePhone);
             Intent intent = new Intent(Profile.this, MainActivity.class);
             startActivity(intent);
@@ -49,17 +53,16 @@ public class Profile extends Activity {
     }
 
     private void updateUInfo(String name, String dateOfBirth, String phone) {
-        String key = MainActivity.user.getId();
+        String userId = MainActivity.user.getId();
 
         String id = MainActivity.user.getId();
         String email = MainActivity.user.getEmail();
-        String password = MainActivity.user.getPassword();
         String group = MainActivity.user.getGroupID();
-        User user = new User(id, name, phone, email, password, group, dateOfBirth);
+        User user = new User(id, name, phone, email, group, dateOfBirth);
         Map<String, Object> userMap = user.toMap();
 
         Map<String, Object> childUpdates = new HashMap<>();
-        childUpdates.put(key, userMap);
+        childUpdates.put(userId, userMap);
 
         MainActivity.usersDB.updateChildren(childUpdates).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override

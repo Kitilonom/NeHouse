@@ -28,42 +28,11 @@
         android:onClick="CalendarDate"
         android:layout_height="wrap_content" />
 
-    <Button
-        android:id="@+id/event1"
-        android:text="Date + comment"
-        android:layout_height="wrap_content"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_weight="2"
-        android:background="@drawable/button_desidn"
-        android:layout_gravity="center"
-        android:layout_marginHorizontal="25dp"
-        android:layout_marginBottom="10dp"
-        />
-
-    <Button
-        android:id="@+id/event2"
-        android:text="Date + comment"
         android:layout_height="wrap_content"
-        android:layout_weight="2"
-        android:layout_width="match_parent"
-        android:background="@drawable/button_desidn"
-        android:layout_gravity="center"
-        android:layout_marginHorizontal="25dp"
-        android:layout_marginBottom="10dp"
-        />
-
-    <Button
-        android:id="@+id/event3"
-        android:text="Date + comment"
-        android:layout_height="wrap_content"
-        android:layout_weight="2"
-        android:layout_width="match_parent"
-        android:background="@drawable/button_desidn"
-        android:layout_gravity="center"
-        android:layout_marginHorizontal="25dp"
-        android:layout_marginBottom="25dp"
-        />
-
+        android:id="@+id/evQ">
+    </LinearLayout>
 
 
 

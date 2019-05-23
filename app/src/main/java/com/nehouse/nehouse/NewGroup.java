@@ -43,9 +43,11 @@ public class NewGroup extends AppCompatActivity {
     }
 
     public void NewGroupONConfirm(View view) {
-        EditText ETname = (EditText) findViewById(R.id.TVNewGroupName);
-        final String name =  ETname.getText().toString();
-
+        EditText ETname = findViewById(R.id.TVNewGroupName);
+        final String name = ETname.getText().toString();
+        if (name.equals(null)) {
+            Toast.makeText(NewGroup.this, "Filed is required", Toast.LENGTH_SHORT).show();
+        } else {
         MainActivity.groupDB.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -54,10 +56,16 @@ public class NewGroup extends AppCompatActivity {
                             Toast.LENGTH_SHORT).show();
                 } else {
                     MainActivity.user.setGroupID(name);
+                    String userId = MainActivity.user.getId();
+
+                    HashMap<String, String> hm = new HashMap<>();
+                    hm.put("groupID", name);
+                    MainActivity.groupDB.child(userId).setValue(hm);
+
                     final DataSnapshot ds = dataSnapshot;
                     final String key = MainActivity.groupDB.child("friends").push().getKey();
                     Map<String, Object> info = new HashMap<>();
-                    info.put(key, MainActivity.currentUser.getUid());
+                    info.put(key, userId);
                     MainActivity.groupDB.child(name).updateChildren(info).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
@@ -70,11 +78,10 @@ public class NewGroup extends AppCompatActivity {
                     });
                 }
             }
-
             @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-            }
+            public void onCancelled(@NonNull DatabaseError databaseError) { }
     });
+        }
     }
 }
 
