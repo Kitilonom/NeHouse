@@ -27,6 +27,15 @@
         android:background="@drawable/button_desidn" />
 
     <TextView
+        android:id="@+id/GroupName"
+        android:gravity="center"
+        android:layout_height="25dp"
+        android:layout_width="300dp"
+        android:layout_weight="1"
+        android:text="Group"
+        android:background="@drawable/button_desidn" />
+
+    <TextView
         android:id="@+id/AccDateOfBirth"
         android:gravity="center"
         android:layout_height="25dp"
