@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorPrimary"
+    android:gravity="center"
+    android:layout_height="match_parent">
+
+
+    <EditText
+        android:id="@+id/EventDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Date"
+        android:layout_margin="25dp"
+        android:inputType="date" />
+
+    <AutoCompleteTextView
+        android:id="@+id/EventType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="25dp"
+        android:hint="Event Type" />
+
+    <EditText
+        android:id="@+id/EventComment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="25dp"
+        android:ems="10"
+        android:hint="Comment"
+        android:inputType="textMultiLine" />
+
+    <EditText
+        android:id="@+id/EventPresent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="25dp"
+        android:hint="Purchase" />
+
+    <EditText
+        android:id="@+id/EventCost"
+        android:layout_width="match_parent"
+        android:layout_margin="25dp"
+        android:layout_height="wrap_content"
+        android:hint="Cost"
+        android:ems="10"
+        android:inputType="number" />
+
+    <Button
+        android:id="@+id/EventConfirm"
+        android:layout_margin="25dp"
+        android:layout_width="250dp"
+        android:textColor="#ffffff"
+        android:layout_height="wrap_content"
+        android:text="confirm"
+        android:gravity="center"
+        android:background="@drawable/button_desidn"
+        android:onClick="newEvent"
+        />
+
+</LinearLayout>

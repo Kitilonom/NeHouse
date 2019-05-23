@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/dialog_design"
+    android:gravity="center"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/NewAccount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="New Account"
+        android:gravity="center"
+        android:layout_margin="25dp"
+        android:typeface="monospace"
+        android:textColor="#ffffff"
+        android:textSize="25dp"/>
+
+    <EditText
+        android:id="@+id/NewAccountName"
+        android:layout_margin="25dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Title"
+        android:ems="10"
+        android:inputType="textMultiLine" />
+
+    <EditText
+        android:id="@+id/NewAccountSum"
+        android:layout_margin="25dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Sum"
+        android:ems="10"
+        android:inputType="number" />
+
+
+    <Button
+        android:id="@+id/NewAccountConfirm"
+        android:layout_margin="25dp"
+        android:layout_width="250dp"
+        android:textColor="#ffffff"
+        android:layout_height="wrap_content"
+        android:text="confirm"
+        android:gravity="center"
+        android:background="@drawable/dialog_button"
+        android:onClick="NewAccount"
+        />
+
+</LinearLayout>

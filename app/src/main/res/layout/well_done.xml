@@ -1,0 +1,53 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width = "match_parent"
+    android:layout_height = "wrap_content"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@drawable/dialog_design">
+
+    <TextView
+        android:id="@+id/WellDone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Well done!"
+        android:gravity="center"
+        android:layout_margin="25dp"
+        android:typeface="monospace"
+        android:textColor="#ffffff"
+        android:textSize="25dp" />
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width = "match_parent"
+        android:layout_height = "wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginHorizontal="25dp"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/MoneySavedTitle"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:layout_weight="2"
+            android:textSize="20dp"
+            android:text="Saved money:"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/MoneySaved"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:textSize="35dp"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/Done"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/dialog_button"
+        android:text="thanks"
+        android:layout_margin="25dp"/>
+
+</LinearLayout>

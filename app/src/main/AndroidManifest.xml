@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -16,6 +17,75 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".Budget"
+            android:label="Budget">
+        </activity>
+
+        <activity android:name=".Calendar"
+            android:label="Calendar">
+        </activity>
+
+        <activity android:name=".Chat"
+            android:label="Chat">
+        </activity>
+
+        <activity android:name=".Contacts"
+            android:label="Contacts">
+        </activity>
+
+        <activity android:name=".DateEvents"
+            android:label="Date Events">
+        </activity>
+
+        <activity android:name=".EditEvent"
+            android:label="Edit Event">
+        </activity>
+
+        <activity android:name=".ForgotPassword"
+            android:label="Forgot Password">
+        </activity>
+
+        <activity android:name=".Group"
+            android:label="Group">
+        </activity>
+
+        <activity android:name=".LogOn"
+            android:label="Log On">
+        </activity>
+
+        <activity android:name=".MyWishlist"
+            android:label="My WishList">
+        </activity>
+
+        <activity android:name=".OperationsHistory"
+            android:label="Operations History">
+        </activity>
+
+        <activity android:name=".PasswordChanging"
+            android:label="Password Changing">
+        </activity>
+
+        <activity android:name=".Profile"
+            android:label="Profile">
+        </activity>
+
+        <activity android:name=".Settings"
+            android:label="Settings">
+        </activity>
+
+        <activity android:name=".ShoppingList"
+            android:label="Shopping List">
+        </activity>
+
+        <activity android:name=".WelcomePage"
+            android:label="Welcome Page">
+        </activity>
+
+        <activity android:name=".Wishlist"
+            android:label="Wishlist">
+        </activity>
+
     </application>
 
 </manifest>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width = "match_parent"
+    android:layout_height = "match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@color/colorPrimary">
+
+
+    <ScrollView
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/AccountsQueue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </ScrollView>
+
+    <Button
+        android:id="@+id/NewAccount"
+        android:layout_margin="10dp"
+        android:layout_width="250dp"
+        android:textColor="#ffffff"
+        android:layout_height="wrap_content"
+        android:text="New Account"
+        android:gravity="center"
+        android:background="@drawable/button_desidn"
+        android:onClick="BudgetNewAccount"
+        />
+
+    <Button
+        android:id="@+id/OpHistory"
+        android:layout_marginHorizontal="25dp"
+        android:layout_width="250dp"
+        android:textColor="#ffffff"
+        android:layout_height="wrap_content"
+        android:text="operations history"
+        android:gravity="center"
+        android:background="@drawable/button_desidn"
+        android:onClick="BudgetOperationsHistory"
+        />
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width = "250dp"
+        android:layout_height = "wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:background="@color/colorPrimary">
+
+        <Button
+            android:id="@+id/IncomeButton"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:textColor="#ffffff"
+            android:layout_height="wrap_content"
+            android:text="income"
+            android:gravity="center"
+            android:background="@drawable/button_desidn"
+            android:onClick="BudgetIncome"
+            />
+
+        <Button
+            android:id="@+id/ExpenseButton"
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:textColor="#ffffff"
+            android:layout_height="wrap_content"
+            android:text="expense"
+            android:gravity="center"
+            android:background="@drawable/button_desidn"
+            android:onClick="BudgetExpense"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>

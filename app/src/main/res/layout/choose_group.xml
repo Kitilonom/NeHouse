@@ -1,0 +1,39 @@
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width = "match_parent"
+    android:layout_height = "match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@drawable/dialog_design">
+
+    <TextView
+        android:id="@+id/ChGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Choose Group"
+        android:gravity="center"
+        android:layout_margin="25dp"
+        android:typeface="monospace"
+        android:textColor="#ffffff"
+        android:textSize="25dp" />
+
+    <AutoCompleteTextView
+        android:id="@+id/chooseGroup"
+        android:layout_width="match_parent"
+        android:layout_margin="25dp"
+        android:layout_height="wrap_content"
+        android:inputType="textAutoComplete"
+        android:hint="Start typing group name"/>
+
+    <Button
+        android:id="@+id/NewGroupButton"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/dialog_button"
+        android:text="New Group"
+        android:layout_margin="25dp"
+        android:onClick="NewGroup"/>
+
+
+</LinearLayout>
